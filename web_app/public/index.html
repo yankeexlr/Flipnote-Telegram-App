@@ -25,6 +25,9 @@
       <div class="top-bar">
         <div class="mid-line title adjust-3">
             <div class="mid-line">
+              <!-- We need to use raw <svg> as opposed to linking it via <img> so it can communicate its stroke color with the script and the stylesheet -->
+              <!-- Here, I removeed the 'stroke=' property off the path so it takes it from the 'class' specified in the parent  -->
+              <!-- If the .svgs were linked from assets, for example, it wouldn't be possible to dynamically color them -->
                 <svg class="icon-alt" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6.25 20.8333C6.25 12.9766 6.25 9.04822 8.69077 6.60743C11.1316 4.16666 15.0599 4.16666 22.9167 4.16666H27.0833C34.94 4.16666 38.8685 4.16666 41.3092 6.60743C43.75 9.04822 43.75 12.9766 43.75 20.8333V29.1667C43.75 37.0233 43.75 40.9519 41.3092 43.3925C38.8685 45.8333 34.94 45.8333 27.0833 45.8333H22.9167C15.0599 45.8333 11.1316 45.8333 8.69077 43.3925C6.25 40.9519 6.25 37.0233 6.25 29.1667V20.8333Z" stroke-width="3"/>
                   <path d="M16.6667 20.8333H33.3333" stroke-width="3" stroke-linecap="round"/>
