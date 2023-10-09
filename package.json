@@ -1,0 +1,23 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/deannapi/note-taker)\r ![GitHub repo size](https://img.shields.io/github/repo-size/deannapi/note-taker)\r ![GitHub](https://img.shields.io/github/license/deannapi/note-taker)\r ![GitHub followers](https://img.shields.io/github/followers/deannapi?style=social)\r ![GitHub package.json version](https://img.shields.io/github/package-json/v/deannapi/\r ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/deannapi/note-taker)note-taker)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "DeAnna Martinez",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deannapi/note-taker"
+  }
+}
