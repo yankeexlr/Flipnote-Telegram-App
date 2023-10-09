@@ -11,3 +11,4 @@ web_app
 The app itself is a minimalistic Express.js-based instance that lets us process the key mechanics of taking notes. It consists of a single index.html file, a .js file containing the scripts, and a communication route with the database via Ajax.
 
 
+<deed>
