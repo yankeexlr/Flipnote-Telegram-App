@@ -1,5 +1,5 @@
 # Flipnote-Telegram-App
-A simple web app for taking notes, built to run on Telegram's web app platform (also called [tApps or TWA](https://docs.twa.dev/docs/introduction/about-platform").
+A simple web app for taking notes, built to run on Telegram's web app platform (also called [tApps or TWA](https://docs.twa.dev/docs/introduction/about-platform")).
 This repo could be helpful for you to learn the tApp basics, as well as play with the build.
 In case you wish to dig deeper into the code, we've added plenty of useful comments and tricks when working with TWA SDK.
 
