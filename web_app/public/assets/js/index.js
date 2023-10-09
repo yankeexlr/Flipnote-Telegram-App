@@ -1,9 +1,11 @@
+// The mini-app runs async and executes functions on button-based events
 var $noteTitle = $(".note-title");
 var $noteText = $(".note-textarea");
 var $saveNoteBtn = $(".save-note");
 var $newNoteBtn = $(".new-note");
 var $noteList = $(".list-container .list-group");
 
+// This thing needed so the whole ecosystem connects properly and recognizes it's in mini-app
 const tele = window.Telegram.WebApp;
 
 var activeNote = {};
@@ -46,6 +48,7 @@ var renderActiveNote = function() {
   }
 };
 
+// Passes on the note values from the Title and Text to the database
 var handleNoteSave = function() {
   var newNote = {
     title: $noteTitle.val(),
