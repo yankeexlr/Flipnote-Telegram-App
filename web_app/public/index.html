@@ -1,74 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <title>Note Taker</title>
-  <link rel="stylesheet" href="./assets/css/styles.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- A critical script to add, which enables the communication between mini-app and the Telegram client -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Flipnote tApp ✨</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+  </head>
 
-<script>
-  function setThemeClass() {
-      document.documentElement.className = Telegram.WebApp.colorScheme;
-  }
-  Telegram.WebApp.onEvent('themeChanged', setThemeClass);
-  setThemeClass();
-</script>
-
-
-<body>
-  <div id="list">
-    <div class="top-bar">
-      <div class="mid-line title adjust-3">
-          <div class="mid-line">
-              <svg class="icon-alt" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.25 20.8333C6.25 12.9766 6.25 9.04822 8.69077 6.60743C11.1316 4.16666 15.0599 4.16666 22.9167 4.16666H27.0833C34.94 4.16666 38.8685 4.16666 41.3092 6.60743C43.75 9.04822 43.75 12.9766 43.75 20.8333V29.1667C43.75 37.0233 43.75 40.9519 41.3092 43.3925C38.8685 45.8333 34.94 45.8333 27.0833 45.8333H22.9167C15.0599 45.8333 11.1316 45.8333 8.69077 43.3925C6.25 40.9519 6.25 37.0233 6.25 29.1667V20.8333Z" stroke-width="3"/>
-                <path d="M16.6667 20.8333H33.3333" stroke-width="3" stroke-linecap="round"/>
-                <path d="M16.6667 29.1667H27.0833" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="mid-line">Recent Notes</div>
+  <!-- This piece of script lets the app catch Telegram client's color scheme, and use variables in the CSS -->
+  <script>
+    function setThemeClass() {
+        document.documentElement.className = Telegram.WebApp.colorScheme;
+    }
+    Telegram.WebApp.onEvent('themeChanged', setThemeClass);
+    setThemeClass();
+  </script>
+  <body>
+    <div id="list">
+      <div class="top-bar">
+        <div class="mid-line title adjust-3">
+            <div class="mid-line">
+                <svg class="icon-alt" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.25 20.8333C6.25 12.9766 6.25 9.04822 8.69077 6.60743C11.1316 4.16666 15.0599 4.16666 22.9167 4.16666H27.0833C34.94 4.16666 38.8685 4.16666 41.3092 6.60743C43.75 9.04822 43.75 12.9766 43.75 20.8333V29.1667C43.75 37.0233 43.75 40.9519 41.3092 43.3925C38.8685 45.8333 34.94 45.8333 27.0833 45.8333H22.9167C15.0599 45.8333 11.1316 45.8333 8.69077 43.3925C6.25 40.9519 6.25 37.0233 6.25 29.1667V20.8333Z" stroke-width="3"/>
+                  <path d="M16.6667 20.8333H33.3333" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M16.6667 29.1667H27.0833" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mid-line">Recent Notes</div>
+        </div>
+        <div class="button-blue right-side mid-line" onclick="openNote()">
+            <div class="mid-line">
+              <svg class="icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 40.3333C32.1252 40.3333 40.3333 32.1252 40.3333 22C40.3333 11.8748 32.1252 3.66666 22 3.66666C11.8748 3.66666 3.66666 11.8748 3.66666 22C3.66666 32.1252 11.8748 40.3333 22 40.3333Z" stroke-width="3"/>
+                <path d="M27.5 22H22M22 22H16.5M22 22V16.5M22 22V27.5" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mid-line new-note">New Note</div>
+        </div>
       </div>
-      <div class="button-blue right-side mid-line" onclick="openNote()">
-          <div class="mid-line">
-            <svg class="icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 40.3333C32.1252 40.3333 40.3333 32.1252 40.3333 22C40.3333 11.8748 32.1252 3.66666 22 3.66666C11.8748 3.66666 3.66666 11.8748 3.66666 22C3.66666 32.1252 11.8748 40.3333 22 40.3333Z" stroke-width="3"/>
-              <path d="M27.5 22H22M22 22H16.5M22 22V16.5M22 22V27.5" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="mid-line new-note">New Note</div>
-      </div>
+        <div class="notes-list list-container">
+          <div class="list-group" onclick="openNote()"></div>
+        </div>
     </div>
-
-      <div class="notes-list list-container">
-        <div class="list-group" onclick="openNote()"></div>
-      </div>
-  </div>
-
-  <div id="note">
-    <div class="top-bar">
-      <span class="button-grey" onclick="openMenu()">
-        <span class="mid-line">
-          <svg class="icon-alt-x" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9.1875 24.5L19.3958 14.2917M9.1875 24.5L19.3958 34.7083M9.1875 24.5H29.6042C33.007 24.5 39.8125 26.5417 39.8125 34.7083" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+    <div id="note">
+      <div class="top-bar">
+        <span class="button-grey" onclick="openMenu()">
+          <span class="mid-line">
+            <svg class="icon-alt-x" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.1875 24.5L19.3958 14.2917M9.1875 24.5L19.3958 34.7083M9.1875 24.5H29.6042C33.007 24.5 39.8125 26.5417 39.8125 34.7083" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="mid-line save-note">Back</span>
         </span>
-        <span class="mid-line save-note">Back</span>
-      </span>
+      </div>
+      <div class="note-space">
+          <input class="note-heading note-title" id="title" placeholder="A little note about..." autocomplete="off">
+          <textarea class="note-text note-textarea" id="text" rows="40" placeholder="So basically..." autocomplete="off"></textarea>
+      </div>
     </div>
-    <div class="note-space">
-        <input class="note-heading note-title" id="title" placeholder="A little note about..." autocomplete="off">
-        <textarea class="note-text note-textarea" id="text" rows="40" placeholder="So basically..." autocomplete="off"></textarea>
-    </div>
-  </div>
-
-
- 
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="./assets/js/index.js"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
 </html>
