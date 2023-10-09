@@ -20,6 +20,7 @@ app.get("/notes", (req, res) => {
 
 // POST  request
 app.post("/notes", (req, res) => {
+  console.log(req.body)
   readFileAsync("db/db.json", "utf8").then(function (data) {
     // Parse data to get an array of objects
     notesData = JSON.parse(data);
